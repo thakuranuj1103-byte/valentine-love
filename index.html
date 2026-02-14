@@ -1,23 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
 <style>
-body{margin:0;background:black;color:white;text-align:center;}
-.slide{display:none;height:100vh;padding-top:40vh;font-size:40px;}
-.active{display:block;}
-button{position:fixed;bottom:20px;padding:10px 20px;font-size:20px;}
-#prev{left:20px;}
-#next{right:20px;}
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+color:white;
+overflow:hidden;
+}
+
+.slide{
+display:none;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+flex-direction:column;
+}
+
+.active{
+display:flex;
+}
+
+.glass{
+background:rgba(255,255,255,0.08);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+max-width:800px;
+}
+
+button{
+position:fixed;
+bottom:30px;
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:#ff4b7d;
+color:white;
+font-weight:bold;
+cursor:pointer;
+font-size:16px;
+}
+
+#prev{left:30px;}
+#next{right:30px;}
+
+img{
+width:200px;
+height:260px;
+border-radius:20px;
+margin:10px;
+object-fit:cover;
+box-shadow:0 15px 30px rgba(0,0,0,0.5);
+}
+
+#typing{
+min-height:150px;
+white-space:pre-line;
+}
 </style>
 </head>
 <body>
 
-<div class="slide active">Slide 1 ❤️</div>
-<div class="slide">Slide 2 🌹</div>
-<div class="slide">Slide 3 💕</div>
+<div class="slide active">
+<div class="glass">
+<h1>Happy Valentine's Day ❤️</h1>
+<p>Our journey has been beautiful…  
+And I promise, our future will be even more magical than our past.</p>
+</div>
+</div>
 
-<button id="prev">Prev</button>
+<div class="slide">
+<div class="glass">
+<h1>Our Story 🌹</h1>
+<p>Every smile, every laugh, every little memory with you  
+has made my life brighter and my heart fuller.</p>
+</div>
+</div>
+
+<div class="slide">
+<div class="glass">
+<h1>For You 💕</h1>
+<p id="typing"></p>
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+</div>
+</div>
+
+<div class="slide">
+<div class="glass">
+<h1>Forever & Always 💍</h1>
+<p>You are my today, tomorrow and forever.  
+With you, life feels like the most beautiful dream.</p>
+</div>
+</div>
+
+<button id="prev">Previous</button>
 <button id="next">Next</button>
 
 <script>
@@ -35,8 +122,28 @@ slides[index].classList.remove("active");
 index = (index - 1 + slides.length) % slides.length;
 slides[index].classList.add("active");
 };
+
+// typing animation
+let text = ke tum se hi din hai, tumse hi raat.
+Tumse hai ishq hai, hai kya aisi baat?
+
+pyaari si bhoori aankhein hain uski,
+chandi sa chamakta chehra,
+sone jese baal hai aur pyar hai ussey gehra.;
+
+let i = 0;
+function typeWriter() {
+if (i < text.length) {
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(typeWriter, 40);
+}
+}
+
+setTimeout(typeWriter, 1000);
 </script>
 
 </body>
-</html> 
+</html>
+
 
