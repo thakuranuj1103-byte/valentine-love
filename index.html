@@ -1,132 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Love ❤️</title>
-
+<title>Test</title>
 <style>
-body{
-margin:0;
-font-family:sans-serif;
-background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-color:white;
-overflow:hidden;
-}
-
-.slide{
-position:absolute;
-width:100%;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
-opacity:0;
-transition:1s;
-}
-
-.slide.active{
-opacity:1;
-}
-
-.glass{
-background:rgba(255,255,255,0.1);
-padding:40px;
-border-radius:20px;
-}
-
-button{
-position:fixed;
-bottom:30px;
-padding:10px 20px;
-border:none;
-border-radius:20px;
-background:#ff4b7d;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-
+body{margin:0;background:black;color:white;text-align:center;}
+.slide{display:none;height:100vh;padding-top:40vh;font-size:40px;}
+.active{display:block;}
+button{position:fixed;bottom:20px;padding:10px 20px;font-size:20px;}
 #prev{left:20px;}
 #next{right:20px;}
-
-img{
-width:180px;
-height:240px;
-border-radius:15px;
-margin:10px;
-object-fit:cover;
-}
 </style>
 </head>
 <body>
 
-<div class="slide active">
-<div class="glass">
-<h1>Happy Valentine's Day ❤️</h1>
-<p>Our journey was beautiful…  
-And our future will be even more magical.</p>
-</div>
-</div>
+<div class="slide active">Slide 1 ❤️</div>
+<div class="slide">Slide 2 🌹</div>
+<div class="slide">Slide 3 💕</div>
 
-<div class="slide">
-<div class="glass">
-<h1>For You 💕</h1>
-<p id="typing"></p>
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-</div>
-</div>
-
-<div class="slide">
-<div class="glass">
-<h1>Forever & Always 💍</h1>
-<p>You are my today, tomorrow and forever.</p>
-</div>
-</div>
-
-<button id="prev">Previous</button>
+<button id="prev">Prev</button>
 <button id="next">Next</button>
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
+let slides = document.querySelectorAll(".slide");
+let index = 0;
 
-let slides=document.querySelectorAll(".slide");
-let index=0;
-
-document.getElementById("next").addEventListener("click",function(){
+document.getElementById("next").onclick = function() {
 slides[index].classList.remove("active");
-index=(index+1)%slides.length;
+index = (index + 1) % slides.length;
 slides[index].classList.add("active");
-});
+};
 
-document.getElementById("prev").addEventListener("click",function(){
+document.getElementById("prev").onclick = function() {
 slides[index].classList.remove("active");
-index=(index-1+slides.length)%slides.length;
+index = (index - 1 + slides.length) % slides.length;
 slides[index].classList.add("active");
-});
-
-// typing effect
-let text=ke tum se hi din hai, tumse hi raat.
-Tumse hai ishq hai, hai kya aisi baat?
-
-pyaari si bhoori aankhein hain uski,
-chandi sa chamakta chehra,
-sone jese baal hai aur pyar hai ussey gehra.;
-
-let i=0;
-function type(){
-if(i<text.length){
-document.getElementById("typing").innerHTML+=text.charAt(i);
-i++;
-setTimeout(type,40);
-}
-}
-setTimeout(type,800);
-
-});
+};
 </script>
 
 </body>
-</html>
+</html> 
+
