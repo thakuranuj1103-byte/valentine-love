@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Love ❤️</title>
 
 <style>
 body{
 margin:0;
-font-family:Arial, sans-serif;
 background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
 color:white;
-overflow:hidden;
+font-family:Arial, sans-serif;
+text-align:center;
 }
 
-/* IMPORTANT FIX HERE */
 .slide{
 display:none;
 height:100vh;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
-flex-direction:column;
+padding-top:20vh;
 }
 
 .slide.active{
-display:flex;
+display:block;
 }
 
 .glass{
 background:rgba(255,255,255,0.08);
+display:inline-block;
 padding:40px;
 border-radius:25px;
 backdrop-filter:blur(10px);
-box-shadow:0 20px 40px rgba(0,0,0,0.4);
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
 max-width:800px;
 }
 
 button{
 position:fixed;
 bottom:30px;
-padding:10px 20px;
+padding:12px 25px;
 border:none;
-border-radius:25px;
+border-radius:30px;
 background:#ff4b7d;
 color:white;
 font-weight:bold;
-cursor:pointer;
 font-size:16px;
-z-index:1000;
+cursor:pointer;
 }
 
 #prev{left:30px;}
@@ -69,6 +65,7 @@ white-space:pre-line;
 }
 </style>
 </head>
+
 <body>
 
 <div class="slide active">
@@ -82,8 +79,8 @@ And I promise, our future will be even more magical than our past.</p>
 <div class="slide">
 <div class="glass">
 <h1>Our Story 🌹</h1>
-<p>Every smile, every laugh, every little memory with you  
-has made my life brighter and my heart fuller.</p>
+<p>Every smile, every laugh, every memory with you  
+has made my world brighter.</p>
 </div>
 </div>
 
@@ -91,7 +88,7 @@ has made my life brighter and my heart fuller.</p>
 <div class="glass">
 <h1>For You 💕</h1>
 <p id="typing"></p>
-
+<br>
 <img src="photo1.jpg">
 <img src="photo2.jpg">
 </div>
@@ -100,8 +97,7 @@ has made my life brighter and my heart fuller.</p>
 <div class="slide">
 <div class="glass">
 <h1>Forever & Always 💍</h1>
-<p>You are my today, tomorrow and forever.  
-With you, life feels like the most beautiful dream.</p>
+<p>You are my today, tomorrow and forever.</p>
 </div>
 </div>
 
@@ -109,42 +105,42 @@ With you, life feels like the most beautiful dream.</p>
 <button id="next">Next</button>
 
 <script>
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+var slides = document.getElementsByClassName("slide");
+var index = 0;
 
-document.getElementById("next").onclick = function() {
+document.getElementById("next").onclick = function(){
 slides[index].classList.remove("active");
 index = (index + 1) % slides.length;
 slides[index].classList.add("active");
 };
 
-document.getElementById("prev").onclick = function() {
+document.getElementById("prev").onclick = function(){
 slides[index].classList.remove("active");
 index = (index - 1 + slides.length) % slides.length;
 slides[index].classList.add("active");
 };
 
-// typing animation
-let text = ke tum se hi din hai, tumse hi raat.
+var text = ke tum se hi din hai, tumse hi raat.
 Tumse hai ishq hai, hai kya aisi baat?
 
 pyaari si bhoori aankhein hain uski,
 chandi sa chamakta chehra,
 sone jese baal hai aur pyar hai ussey gehra.;
 
-let i = 0;
-function typeWriter() {
-if (i < text.length) {
+var i = 0;
+function type(){
+if(i < text.length){
 document.getElementById("typing").innerHTML += text.charAt(i);
 i++;
-setTimeout(typeWriter, 40);
+setTimeout(type,40);
 }
 }
-
-setTimeout(typeWriter, 1000);
+setTimeout(type,1000);
 </script>
 
 </body>
 </html>
+
+
 
 
